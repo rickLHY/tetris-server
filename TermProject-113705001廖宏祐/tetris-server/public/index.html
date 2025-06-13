@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>俄羅斯方塊</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="menu-container">
+    <div class="list">&#9776;</div>
+    <ul class="menu-list">
+      <li class="menu-item" id="HomeButton">
+        <span class="icon">🏠</span>
+        <span class="label">Home</span>
+      </li>
+      <li class="menu-item" id="rankButton">
+        <span class="icon">🏆</span>
+        <span class="label">Rank</span>
+      </li>
+      <li class="menu-item" onclick="toggleMusic()">
+        <span class="icon">🎧ྀི</span>
+        <span class="label">Music</span>
+      </li>
+    </ul>
+    
+  </div>
+<div id="musicPanel" class="hidden">
+  <h2>🎧 音樂播放</h2>
+  <p id="currentMusic">正在播放：-</p>
+  <ul id="musicList"></ul>
+  <button onclick="togglePlay()">⏯ 暫停 / 播放</button>
+  <br>
+  <label>
+    音量：
+    <input type="range" id="volumeControl" min="0" max="1" step="0.05" value="0.5">
+  </label>
+</div>
+  <button id="startBtn">▶️ Start Game</button>
+
+  <canvas id="tetris" width="300" height="600"></canvas>
+  <div id="sidePanel">
+    <canvas id="prelook" width="120" height="120"></canvas>
+    <div id="Level">Level: 0</div>
+    <div id="scoreDisplay">Score: 0</div>
+    <div id="timerDisplay">Time: 0s</div>
+  </div>
+
+  <div id="controls">
+    <img src="picture/pause.png" id="btnPause" class="control-btn" >
+    <img src="picture/up.png" id="btnUp" class="control-btn" >
+    <div class="horizontal-controls">
+      <img src="picture/left.png" id="btnLeft" class="control-btn" >
+      <img src="picture/down.png" id="btnDown" class="control-btn" >
+      <img src="picture/right.png" id="btnRight" class="control-btn" >
+    </div>
+  </div>
+
+<div id="rankPanel" class="hidden">
+  <h1>Rank</h1>
+  <ul id="rankList"></ul>
+</div>
+
+<div id="gameOverPanel" class="hidden">
+  <h2>Game Over!</h2>
+  <input type="text" id="playerName" placeholder="Enter your name">
+  <div style="margin-top: 10px;">
+    <button onclick="submitScore()">Submit</button>
+    <button onclick="restartGame()">再來一局</button>
+  </div>
+</div>
+
+  <audio id="bgmPlayer" loop src="your-music-file.mp3"></audio>
+
+  <script src="main.js"></script>
+</body>
+</html>
